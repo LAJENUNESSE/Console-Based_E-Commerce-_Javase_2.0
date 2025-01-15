@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子商城系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            width: 100%;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>欢迎来到电子商城系统</h1>
+</header>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <section>
+        <h2>用户操作</h2>
+        <button onclick="showRegister()">注册</button>
+        <button onclick="showLogin()">登录</button>
+        <button onclick="showForgotPassword()">找回密码</button>
+    </section>
+
+    <section>
+        <h2>管理员操作</h2>
+        <button onclick="showAdminLogin()">管理员登录</button>
+    </section>
+</div>
+
+<section id="userForm" style="display:none;">
+    <h2>用户注册</h2>
+    <form id="registerForm">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="button" onclick="register()">注册</button>
+        <button type="button" onclick="hideForms()">返回</button>
+    </form>
+</section>
+
+<section id="loginForm" style="display:none;">
+    <h2>用户登录</h2>
+    <form id="loginForm">
+        <label for="loginUsername">用户名:</label>
+        <input type="text" id="loginUsername" name="loginUsername" required><br><br>
+        <label for="loginPassword">密码:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+        <button type="button" onclick="login()">登录</button>
+        <button type="button" onclick="hideForms()">返回</button>
+    </form>
+</section>
+
+<section id="forgotPasswordForm" style="display:none;">
+    <h2>找回密码</h2>
+    <form id="forgotPasswordForm">
+        <label for="forgotUsername">用户名:</label>
+        <input type="text" id="forgotUsername" name="forgotUsername" required><br><br>
+        <button type="button" onclick="forgotPassword()">提交</button>
+        <button type="button" onclick="hideForms()">返回</button>
+    </form>
+</section>
+
+<section id="adminLoginForm" style="display:none;">
+    <h2>管理员登录</h2>
+    <form id="adminLoginForm">
+        <label for="adminUsername">管理员用户名:</label>
+        <input type="text" id="adminUsername" name="adminUsername" required><br><br>
+        <label for="adminPassword">管理员密码:</label>
+        <input type="password" id="adminPassword" name="adminPassword" required><br><br>
+        <button type="button" onclick="adminLogin()">登录</button>
+        <button type="button" onclick="hideForms()">返回</button>
+    </form>
+</section>
+
+<script>
+    function showRegister() {
+        hideAllForms();
+        document.getElementById('userForm').style.display = 'block';
+    }
+
+    function showLogin() {
+        hideAllForms();
+        document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function showForgotPassword() {
+        hideAllForms();
+        document.getElementById('forgotPasswordForm').style.display = 'block';
+    }
+
+    function showAdminLogin() {
+        hideAllForms();
+        document.getElementById('adminLoginForm').style.display = 'block';
+    }
+
+    function hideForms() {
+        hideAllForms();
+    }
+
+    function hideAllForms() {
+        document.getElementById('userForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('forgotPasswordForm').style.display = 'none';
+        document.getElementById('adminLoginForm').style.display = 'none';
+    }
+
+    function register() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        // 调用后端注册接口
+        alert(`注册用户: ${username}`);
+    }
+
+    function login() {
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+        // 调用后端登录接口
+        alert(`用户登录: ${username}`);
+    }
+
+    function forgotPassword() {
+        const username = document.getElementById('forgotUsername').value;
+        // 调用后端找回密码接口
+        alert(`找回密码请求: ${username}`);
+    }
+
+    function adminLogin() {
+        const adminUsername = document.getElementById('adminUsername').value;
+        const adminPassword = document.getElementById('adminPassword').value;
+        // 调用后端管理员登录接口
+        alert(`管理员登录: ${adminUsername}`);
+    }
+</script>
+
+</body>
+</html>

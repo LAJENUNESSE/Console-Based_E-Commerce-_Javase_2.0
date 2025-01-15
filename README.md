@@ -39,7 +39,7 @@
 ### 克隆项目
 
 ```bash  
-git clone https://github.com/LAJENUNESSE/Console-Based_E-Commerce-_Javase_1.0.git 
+git clone https://github.com/LAJENUNESSE/Console-Based_E-Commerce-_Javase_2.0.git 
 cd Console-Based-E-Commerce
 ```
 ## 编译项目
